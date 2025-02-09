@@ -1,0 +1,126 @@
+/* Challenge CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background-color: #3a3838;
+}
+
+/* Navbar styles */
+.navbar {
+ display: flex;
+ justify-content: space-between;
+ /* margin: 20px; */
+ color: white;
+
+}
+
+.logo {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ margin: 20px;
+}
+
+.logo img {
+  border-radius: 100%;
+}
+
+.nav-links{
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links a:hover {
+  cursor: pointer;
+  color: orangered;
+ /* font-weight: 800; */
+}
+
+/* Hero section styles */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/landing-page-1/assets/chaigym.png") ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center ;
+  height: 100vh;
+  opacity: 0.9;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #ffffff;
+  /* height: 70vh; */
+  justify-content: center;
+  margin-bottom: 50px;
+  padding-top: 100px;
+}
+
+.hero-content h1 {
+ font-size: 50px;
+}
+
+.hero-content p {
+  font-size: 20px;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: rgb(228, 91, 40);
+  border: none;
+  font-weight: 600;
+}
+
+.cta-button:hover {
+  cursor: pointer;
+  background-color: rgb(228, 12, 174);
+}
+
+/* Features section styles */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #332a2a;
+  opacity: 0.8;
+  margin-inline:20px ;
+  border-radius: 20px;
+  padding-block: 50px;
+  align-items: center;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border: 2px solid orange;
+  padding: 20px;
+  width: 25%;
+  border-radius: 20px;
+
+}
+
+.feature h3 {
+  color: orange;
+}
+
+.feature p {
+  /* Add styles for feature paragraph */
+}
