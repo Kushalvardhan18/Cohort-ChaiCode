@@ -8,23 +8,39 @@
 body {
   font-family: "Inter", sans-serif;
   line-height: 1.6;
+  background-color: rgb(65, 63, 63);
 }
 
 /* Navbar styles */
 .navbar {
   /* Add styles for the navbar */
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 50px;
+  align-items: center;
 }
 
 .logo {
   /* Add styles for the logo */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: greenyellow;
 }
 
 .logo img {
+  border: 1px solid greenyellow;
   /* Add styles for the logo image */
+  border-radius: 100px;
 }
 
 .menu a {
   /* Add styles for the navigation links */
+  
+  gap: 20px;
+  text-decoration: none;
+  color: white;
+  padding-inline: 5px;
 }
 
 .menu a:hover {
@@ -34,45 +50,87 @@ body {
 /* Hero section styles */
 .hero {
   /* Add styles for the hero section */
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/chaicohort.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
   /* Add styles for the hero content container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+align-items: center;
+margin-block: 50px;
 }
 
 .hero-content h1 {
   /* Add styles for the hero heading */
+  color: greenyellow;
+  font-size: 4em;
 }
 
 .hero-content p {
   /* Add styles for the hero paragraph */
+  font-size: 1.5em;
+  color: white;
 }
 
 .hero-content img {
   /* Add styles for the image in the hero section */
+  border: 2px solid greenyellow;
+  margin-block: 20px;
+  border-radius: 10px;
 }
 
 .enroll-button {
   /* Add styles for the enroll button */
+  background-color: greenyellow;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: 50px;
 }
 
 .enroll-button:hover {
   /* Add hover styles for the enroll button */
+  cursor: pointer;
+  background-color: green;
 }
 
 /* Highlights section styles */
 .highlights {
   /* Add styles for the highlights section */
+  display: flex;
+  justify-content: center;
+  margin: 20px 100px;
+  gap: 100px;
 }
 
 .highlight-card {
   /* Add styles for each highlight card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 30%;
+  background-color: rgb(79, 73, 73);
+  padding-block: 20px;
+  border-radius: 10px;
 }
 
 .highlight-card h3 {
   /* Add styles for highlight card headings */
+  color: greenyellow;
 }
 
 .highlight-card p {
   /* Add styles for highlight card paragraphs */
+  color: white;
 }
