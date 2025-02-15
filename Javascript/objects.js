@@ -2,7 +2,7 @@ const person ={
     firstName: 'Kushal',
     lastName: 'Vardhan',
     hobby: ['Coding',"Riding Sports Bike"],
-    getFullNamd:function(){
+    getFullName:function(){
         return `${this.firstName} ${this.lastName}`;
     },
     address:{
@@ -16,3 +16,4 @@ console.log(person.hobby);
 console.log(person.address.city);
 
 console.log(person.address);
+
