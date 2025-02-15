@@ -13,3 +13,6 @@ const person ={
 }
 console.log(person.hobby);
 
+console.log(person.address.city);
+
+console.log(person.address);
