@@ -1,0 +1,84 @@
+*{
+    background-color: rgb(66, 62, 62);
+}
+.main{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+.calc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 20px;
+}
+#input{
+    margin: 20px;
+    width: 90%;
+    height: 70px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 30px;
+    
+}
+
+.clear{
+    grid-area: clear;
+}
+.backspace{
+    grid-area: backspace;
+}
+#num1{
+    grid-area: num1;
+}
+#num2{
+    grid-area: num2;
+}
+#num3{
+    grid-area: num3;
+}
+#num4{
+    grid-area: num4;
+}
+#num5{
+    grid-area: num5;
+}
+#num6{
+    grid-area: num6;
+}
+#num7{
+    grid-area: num7;
+}
+#num8{
+    grid-area: num8;
+}
+#num9{
+    grid-area: num9;
+}
+#num0{
+    grid-area: num0;
+}
+.buttons{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    /* justify-content: center; */
+    align-items: center;
+    grid-template-areas: 'clear clear backspace' 
+    'num1 num2 num3'
+    'num4 num5 num6'
+    'num7 num8 num9'
+    'num0 num0  num0'; 
+}
+.buttons button{
+    border: none;
+    color: white;
+    border-radius: 100px;
+    background-color: black;
+}
+.backspace img{
+    background-color: black;
+}
