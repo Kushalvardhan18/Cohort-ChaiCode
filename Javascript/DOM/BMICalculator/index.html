@@ -8,22 +8,26 @@
   </head>
   <body>
     <div class="bmi">
-    
-        <img src="/Asssets/BMI_Chart.webp" alt="">
+      <div class="chart">
+        <img src="/Asssets/BMI_Chart.webp" alt="BMI Chart image"  height="500vh">
+      </div>
       <div class="input">
         <input
-          type="text"
+          type="number"
           class="weight"
           placeholder="Enter you Weight in KG"
+          min="0"
+          
         />
         <input
-          type="text"
+          type="number"
           class="height"
           placeholder="Enter your Height in cm"
+          min="0"
         />
+        <button id="calculate">Calculate BMI</button>
+        <div class="result">The BMI is :</div>
       </div>
-
-      <button id="calculate">Calculate BMI</button>
     </div>
   </body>
   <script src="index.js"></script>
