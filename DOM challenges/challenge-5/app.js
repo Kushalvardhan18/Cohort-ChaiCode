@@ -20,3 +20,41 @@ const images = [
     caption: 'Urban City Skyline',
   },
 ];
+let n = images.length-1
+let count = 0
+
+//Next button
+const nextBtn = document.querySelector("#nextButton")
+const prevBtn = document.querySelector("#prevButton")
+const carouselCard = document.querySelector('.carousel-track')
+const carouselCardCaption = document.querySelector('#caption')
+const carouselImages = document.createElement('img')
+const carouselCaption = document.createElement('h4')
+
+carouselImages.classList.add("carousel-images")
+carouselImages.src = images[count].url
+carouselCaption.textContent = images[count].caption
+carouselCard.appendChild(carouselImages)
+carouselCardCaption.appendChild(carouselCaption)
+
+nextBtn.addEventListener('click', () => {
+  count === n ? count =0 :count++;
+  // count = count+1;
+  updateImage(count)
+
+})
+
+//Previous button
+prevBtn.addEventListener('click', () => {
+  count ===0 ?count =n:count--
+  // count = count-1;
+  updateImage(count)
+
+})
+
+
+function updateImage(count){
+  carouselImages.src = images[count].url
+carouselCaption.textContent = images[count].caption
+
+}

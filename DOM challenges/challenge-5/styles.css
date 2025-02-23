@@ -26,6 +26,9 @@ h1 {
   display: flex;
   transition: transform 0.5s ease-in-out;
   height: 100%;
+  justify-content: center;
+  /* background-color: white; */
+
 }
 
 .carousel-slide {
@@ -116,4 +119,9 @@ h1 {
 
 .auto-play-button:hover {
   background-color: #2980b9;
+}
+.carousel-images{
+  width: 100%;
+  border-radius: 15px;
+  
 }

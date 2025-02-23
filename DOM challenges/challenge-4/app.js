@@ -55,14 +55,14 @@ function addTask(inputVal) {
 }
 
 function checkList(event) {
-    let taskItem = event.target.parentElement;
+    let taskItem = event.target.value;
     if (event.target.checked) {
         completedTask++;
-        taskItem.style.textDecoration = "line-through"; // Add strikethrough
+        taskItem.style.textDecoration = "line-through";
         taskItem.style.color = "gray";
     } else {
         completedTask--;
-        taskItem.style.textDecoration = "none"; // Add strikethrough
+        taskItem.style.textDecoration = "none"; 
         taskItem.style.color = "black";
     }
 
