@@ -34,6 +34,8 @@ const images = [
 //taking length of array
 let n = images.length - 1
 let interValid = null
+let timerValid = null
+let countDown = 5
 // intialization of counter 
 let count = 0
 
@@ -41,34 +43,36 @@ let count = 0
 const nextBtn = document.querySelector("#nextButton")
 //prev button
 const prevBtn = document.querySelector("#prevButton")
-
 const carouselCard = document.querySelector('.carousel-track')
 const carouselCardCaption = document.querySelector('#caption')
 const carouselImages = document.createElement('img')
 const carouselCaption = document.createElement('h4')
-
 // navigators
 const navigators = document.querySelector('#carouselNav')
-
-
 // autoplay button
 const timer = document.querySelector('#timerDisplay')
 const autoplayBtn = document.querySelector('#autoPlayButton')
-autoplayBtn.addEventListener('click', () => {
 
-  if(!interValid){
+autoplayBtn.addEventListener('click', () => {
+  updateImage(count);
+    startCountdown();
+  if (!interValid) {
     autoplayBtn.innerText = "Stop Auto Play"
 
-    interValid =setInterval(() => {
-      count === n ?count=0 : count++
+    interValid = setInterval(() => {
+      count === n ? count = 0 : count++
       updateImage(count)
       console.log(count)
-      timer.innerText = `next slide in ${5} seconds`
-    }, 3000)
+      startCountdown();
+
+      
+    }, 5000)
   }
-  else{
+  else {
     clearInterval(interValid)
-    interValid= null
+    interValid = null
+    timerValid = null
+    timer.innerText = "";
     autoplayBtn.innerText = " Start Auto Play"
   }
   // count = count + 1
@@ -80,10 +84,6 @@ autoplayBtn.addEventListener('click', () => {
 //     interValid= null
 //   }
 // }
-
-
-
-
 carouselImages.classList.add("carousel-images")
 carouselImages.src = images[count].url
 carouselCaption.textContent = images[count].caption
@@ -115,7 +115,30 @@ indicators[count].classList.add('active')
 
 // })
 
+// updation 
+function updateImage(count) {
+  carouselImages.src = images[count].url
+  carouselCaption.textContent = images[count].caption
+  indicators.forEach((indicator) => indicator.classList.remove('active'))
 
+  indicators[count].classList.add('active')
+
+}
+
+function startCountdown(){
+  // Countdown Display
+  countDown = 5;
+  timer.innerText = `Next slide in ${countDown} seconds`;
+
+  if (timerValid) clearInterval(timerValid);
+  timerValid = setInterval(() => {
+    countDown--;
+    timer.innerText = `next slide in ${countDown} seconds`
+    if (countDown <= 0) {
+      clearInterval(timerValid)
+    }
+  }, 1000)
+}
 nextBtn.addEventListener('click', () => {
   count === n ? count = 0 : count++;
   // count = count+1;
@@ -133,12 +156,3 @@ prevBtn.addEventListener('click', () => {
 
 
 
-// updation 
-function updateImage(count) {
-  carouselImages.src = images[count].url
-  carouselCaption.textContent = images[count].caption
-  indicators.forEach((indicator) => indicator.classList.remove('active'))
-
-  indicators[count].classList.add('active')
-
-}
