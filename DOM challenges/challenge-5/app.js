@@ -19,17 +19,70 @@ const images = [
     url: 'https://plus.unsplash.com/premium_photo-1680466057202-4aa3c6329758?q=80&w=2138&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     caption: 'Urban City Skyline',
   },
+  {
+    url: "https://images.pexels.com/photos/1766838/pexels-photo-1766838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    caption: "Beautiful River"
+  }, {
+    url: "https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    caption: "CityLights"
+  },
+  {
+    url: "https://images.pexels.com/photos/954599/pexels-photo-954599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    caption: "Hello there"
+  }
 ];
-let n = images.length-1
+//taking length of array
+let n = images.length - 1
+let interValid = null
+// intialization of counter 
 let count = 0
 
 //Next button
 const nextBtn = document.querySelector("#nextButton")
+//prev button
 const prevBtn = document.querySelector("#prevButton")
+
 const carouselCard = document.querySelector('.carousel-track')
 const carouselCardCaption = document.querySelector('#caption')
 const carouselImages = document.createElement('img')
 const carouselCaption = document.createElement('h4')
+
+// navigators
+const navigators = document.querySelector('#carouselNav')
+
+
+// autoplay button
+const timer = document.querySelector('#timerDisplay')
+const autoplayBtn = document.querySelector('#autoPlayButton')
+autoplayBtn.addEventListener('click', () => {
+
+  if(!interValid){
+    autoplayBtn.innerText = "Stop Auto Play"
+
+    interValid =setInterval(() => {
+      count === n ?count=0 : count++
+      updateImage(count)
+      console.log(count)
+      timer.innerText = `next slide in ${5} seconds`
+    }, 3000)
+  }
+  else{
+    clearInterval(interValid)
+    interValid= null
+    autoplayBtn.innerText = " Start Auto Play"
+  }
+  // count = count + 1
+})
+
+//  const stopAutoPlay =() =>{
+//   if(interValid){
+//     clearInterval(interValid);
+//     interValid= null
+//   }
+// }
+
+
+
 
 carouselImages.classList.add("carousel-images")
 carouselImages.src = images[count].url
@@ -37,8 +90,34 @@ carouselCaption.textContent = images[count].caption
 carouselCard.appendChild(carouselImages)
 carouselCardCaption.appendChild(carouselCaption)
 
+// Indicators
+for (let i = 0; i < n + 1; i++) {
+  const navIndicator = document.createElement('div')
+  navIndicator.classList.add("carousel-indicator")
+  // navIndicator.setAttribute("id",`#carousel-indicator${i}`)
+
+  navIndicator.addEventListener('click', () => {
+    count = i
+    console.log(i);
+    updateImage(count)
+  })
+  navigators.appendChild(navIndicator)
+  // console.log(navIndicator);
+}
+const indicators = document.querySelectorAll('.carousel-indicator');
+indicators[count].classList.add('active')
+// const navImages = document.querySelector("#carousel-indicator0")
+// navigators.addEventListener('click',(e)=>{
+//   count =1
+//   updateImage(count )
+//   // e.target.value = images[1].url
+//   // console.log(e.target.value);
+
+// })
+
+
 nextBtn.addEventListener('click', () => {
-  count === n ? count =0 :count++;
+  count === n ? count = 0 : count++;
   // count = count+1;
   updateImage(count)
 
@@ -46,15 +125,20 @@ nextBtn.addEventListener('click', () => {
 
 //Previous button
 prevBtn.addEventListener('click', () => {
-  count ===0 ?count =n:count--
+  count === 0 ? count = n : count--
   // count = count-1;
   updateImage(count)
 
 })
 
 
-function updateImage(count){
+
+// updation 
+function updateImage(count) {
   carouselImages.src = images[count].url
-carouselCaption.textContent = images[count].caption
+  carouselCaption.textContent = images[count].caption
+  indicators.forEach((indicator) => indicator.classList.remove('active'))
+
+  indicators[count].classList.add('active')
 
 }

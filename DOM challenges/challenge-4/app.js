@@ -34,7 +34,7 @@ function countInc(count) {
     totalTask.innerText = `Total tasks: ${count}`;
 }
 function addTask(inputVal) {
-    if (count > 0) {
+    if (count === 1 && emptyList) {
         emptyList.remove();
     }
 
@@ -55,7 +55,7 @@ function addTask(inputVal) {
 }
 
 function checkList(event) {
-    let taskItem = event.target.value;
+    let taskItem = event.target.parentElement;
     if (event.target.checked) {
         completedTask++;
         taskItem.style.textDecoration = "line-through";
@@ -65,7 +65,6 @@ function checkList(event) {
         taskItem.style.textDecoration = "none"; 
         taskItem.style.color = "black";
     }
-
 
     cTAsk.innerText = `Completed: ${completedTask}`
 };
