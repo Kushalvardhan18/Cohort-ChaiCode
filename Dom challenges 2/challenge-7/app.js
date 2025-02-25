@@ -1,12 +1,18 @@
-let accordianItems = document.querySelectorAll('.accordion-item')
-accordianItems.forEach((item)=>{
-  item.addEventListener('click',()=>{
-    const isActive = item.classList.contains('active')
-    accordianItems.forEach((input)=>input.classList.remove('active'))
+const accordionItems = document.querySelectorAll('.accordion-item')
 
-    if(!isActive){
 
-        item.classList.add('active')
-    }
-  })
+accordionItems.forEach((item) => {
+    const accordionBtn = item.querySelector('.accordion-button')
+
+    accordionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active')
+        accordionItems.forEach((e) => e.classList.remove('active'))
+
+
+        if (!isActive) {
+            item.classList.add('active')
+        }
+
+    })
+
 })
