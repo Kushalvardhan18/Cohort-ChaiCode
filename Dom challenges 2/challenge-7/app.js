@@ -6,7 +6,7 @@ accordionItems.forEach((item) => {
 
     accordionBtn.addEventListener('click', () => {
         const isActive = item.classList.contains('active')
-        accordionItems.forEach((e) => e.classList.remove('active'))
+        accordionItems.forEach((item) => item.classList.remove('active'))
 
 
         if (!isActive) {
