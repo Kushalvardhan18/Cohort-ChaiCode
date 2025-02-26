@@ -19,7 +19,6 @@ function addToCart(itemName, price,image) {
     const quantityIncBtn = document.createElement('button')
     const quantityDecBtn = document.createElement('button')
     const itemImage = document.createElement('img')
-    // itemImage.src = newSrc
 
     qualityControl.appendChild(quantityIncBtn)
     qualityControl.appendChild(itemImage)
@@ -27,3 +26,15 @@ function addToCart(itemName, price,image) {
 }
 
 
+const products = document.querySelector('.products')
+const product =products.querySelectorAll('.product img')
+
+console.log(product);
+
+// product.forEach((input)=>{
+//     console.log(input);
+//     // console.log(img.src);
+    
+    
+    
+// })
