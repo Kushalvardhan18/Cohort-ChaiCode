@@ -30,7 +30,10 @@ body {
   padding: 20px;
   border-radius: 8px;
 }
-
+/* #cart-items{
+  display: flex;
+  flex-direction: column;
+} */
 .cart-item {
   display: flex;
   justify-content: space-between;
