@@ -1,12 +1,13 @@
-let count =0
+let totalPrice = 0
 function addToCart(itemName, price) {
-    // if(cart.contains(cartItem.it)){
-    //     quantityInc()
-    // }
+    let count = 1
     const products = document.querySelectorAll(".product")
     const cart = document.querySelector("#cart-items")
     const emptyCart = document.querySelector(".empty-cart")
-
+    const cartTotal = document.querySelector("#cart-total h3 ")
+    totalPrice += price
+    totalPrice = parseFloat(totalPrice.toFixed(2))
+    cartTotal.innerText = `Total:$: ${totalPrice}`
     // created a div for adding the items details and class is added for easy selections. 
     const cartItem = document.createElement('div')
     cartItem.classList.add('cart-item')
@@ -26,41 +27,64 @@ function addToCart(itemName, price) {
             // console.log(itemImage);
         }
     })
-
+    const quantityDisplay = document.createElement("span")
+    quantityDisplay.innerText = count
 
     const quantityIncBtn = document.createElement('button')
     quantityIncBtn.innerText = "+"
     quantityIncBtn.addEventListener('click', () => {
-        console.log(count);
-        
-       quantityInc(count)
+        count = count + 1
+        totalPrice += price
+        totalPrice = parseFloat(totalPrice.toFixed(2))
+        quantityDisplay.innerText = count
+        cartTotal.innerText = `Total:$: ${totalPrice}`
+
     })
 
     const quantityDecBtn = document.createElement('button')
     quantityDecBtn.innerText = "-"
     quantityDecBtn.addEventListener('click', () => {
-        count > 0 ? count = count - 1 : cart.removeChild(cartItem)
-        // updateCount(count)
+        if (count > 1) {
+            count = count - 1
+            totalPrice -= price
+            totalPrice = parseFloat(totalPrice.toFixed(2))
+            
+            quantityDisplay.innerText = count
+            cartTotal.innerText = `Total:$: ${totalPrice}`
+        }
+        else {
+            totalPrice -=price
+            totalPrice = parseFloat(totalPrice.toFixed(2))
+            cartTotal.innerText = `Total:$: ${totalPrice}`
+            cart.removeChild(cartItem)
+        }
+
 
     })
     const removeBtn = document.createElement('button')
     removeBtn.innerText = "remove"
-    removeBtn.addEventListener('click',()=>{
+    removeBtn.addEventListener('click', () => {
+        totalPrice -= price * count;
+        cartTotal.innerText = `Total: $${totalPrice}`;
         cart.removeChild(cartItem)
+
     })
-    cart.appendChild(cartItem)
+
+
+    // Append 
+    cartItem.append(itemImage)
+    cartItem.append(`${itemName} - ${price}`)
     cartItem.appendChild(qualityControl)
-    cartItem.append(itemName)
-    cartItem.append(price)
     qualityControl.appendChild(quantityIncBtn)
-    qualityControl.appendChild(itemImage)
+    qualityControl.append(quantityDisplay)
     qualityControl.appendChild(quantityDecBtn)
     qualityControl.appendChild(removeBtn)
-    cart.removeChild(emptyCart)
+    cart.appendChild(cartItem)
 
+    // empty cart is present then remove it
+    if (emptyCart) {
+        emptyCart.remove()
+    }
+    
 }
 
-function quantityInc(){
-    count = count + 1
-    // updateCount(count)
-}
