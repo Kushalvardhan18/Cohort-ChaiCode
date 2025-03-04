@@ -55,7 +55,7 @@ const autoplayBtn = document.querySelector('#autoPlayButton')
 
 autoplayBtn.addEventListener('click', () => {
   updateImage(count);
-    startCountdown();
+  startCountdown();
   if (!interValid) {
     autoplayBtn.innerText = "Stop Auto Play"
 
@@ -65,13 +65,16 @@ autoplayBtn.addEventListener('click', () => {
       console.log(count)
       startCountdown();
 
-      
+
     }, 5000)
   }
   else {
     clearInterval(interValid)
     interValid = null
-    timerValid = null
+    if (timerValid) {
+      clearTimeout(timerValid); // Clear the countdown timer
+      timerValid = null;
+    }
     timer.innerText = "";
     autoplayBtn.innerText = " Start Auto Play"
   }
@@ -125,7 +128,7 @@ function updateImage(count) {
 
 }
 
-function startCountdown(){
+function startCountdown() {
   // Countdown Display
   countDown = 5;
   timer.innerText = `Next slide in ${countDown} seconds`;
