@@ -48,7 +48,9 @@ const doubledImages = [...images, ...images]
 let flippedImages = []
 let matchedImages = []
 let moves = 0
-let time = 0
+let seconds = 0
+let minutes = 0
+let int =null
 
 function imagesShuffle(images) {
   for (let i = images.length - 1; i > 0; i--) {
@@ -74,7 +76,12 @@ doubledImages.forEach((image) => {
 
   card.dataset.image = image.url
   card.addEventListener('click', () => {
-
+    if(moves ===0){
+    if(int != null){
+      clearInterval(int)
+    }
+     int = setInterval(stopWatch,1000)
+    }
     if (flippedImages.length < 2 && !flippedImages.includes(card) && !matchedImages.includes(card)
     ) {
       card.classList.toggle("flipped")
@@ -101,6 +108,7 @@ function checkMatch() {
     matchedImages.push(card1, card2)
     if (matchedImages.length === doubledImages.length) {
       alert("Congratulation You have won the game ")
+      location.reload()
     }
   }
   else {
@@ -117,3 +125,12 @@ function restartGame() {
 
 
 
+function stopWatch(){
+  seconds++
+  if(seconds === 60){
+    minutes++;
+    seconds =0
+  }
+  playingTime.innerText = `${minutes<10 ?"0":minutes}:${seconds < 10 ? "0" + seconds : seconds}`
+}
+// setInterval(stopWatch,1000)
