@@ -16,3 +16,27 @@ arr.myForEach(function(value,index){
     console.log(`Value at Index ${index} is ${value}`);
     
 })
+
+
+
+// Signature .map
+// return - new Array, each element iterate,userFn
+
+
+if(!Array.prototype.myMap){
+
+    Array.prototype.myMap = function(userFn){
+        const result =[]
+        const originalArr = this
+        for(let i=0;i<originalArr.length;i++){
+           const value =  userFn(originalArr[i],i)
+            result.push(value)
+        }
+        return result
+    }
+}
+
+
+
+const n = arr.myMap((e)=> e*2)
+console.log(n);
