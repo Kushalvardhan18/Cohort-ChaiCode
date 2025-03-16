@@ -5,15 +5,19 @@ let result = ''
 
 const calculate = document.querySelector('#calculate')
 calculate.addEventListener('click',()=>{
-    result = (weight.value)/((height.value*height.value)/10000)
-    console.log(result)
-    return value(result.toFixed(2))
-    
+    let heightVal = height.value
+    let weightVal = weight.value
+    resultFn(weightVal,heightVal)  
 })
-
+function resultFn(weight,height){
+    result = (weight)/((height*height)/10000)
+    console.log(result)
+    return value(result)
+}
 function value(result){
-    document.querySelector('.result').innerText += result
-    const bmi = result
-    bmi.style.color = 'red'
+   const resultVal= document.querySelector('.result')
+   resultVal.innerText = `The BMI is :${result.toFixed(2)}`
+    
+    resultVal.style.color = 'red'
 
-}``
+}
