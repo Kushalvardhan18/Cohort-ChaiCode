@@ -40,3 +40,25 @@ if(!Array.prototype.myMap){
 
 const n = arr.myMap((e)=> e*2)
 console.log(n);
+
+
+// Filter 
+// Signature : return new Arr , input:userFn ,
+// agar user ka fn true return krta h tooo current value ko new array mai include krta h 
+
+// const arr = [1,2,3,4,5,6]
+
+if(!Array.prototype.myFilter){
+    Array.prototype.myFilter = function(userFn){
+        const result =[]
+
+        for(let i =0;i<this.length;i++){
+            if(userFn(this[i])){
+                result.push(this[i])
+            }
+        }
+        return result
+    }
+}
+const n3 = arr.myFilter((e)=>e%3 ==0)
+console.log(n3);
