@@ -11,9 +11,9 @@ console.log(obj1.getFullName());
 const obj2={
     fname:"Aman",
     lname:"Vardhan",
-    getFullName:function(){
-        return `${this.fname} ${this.lname}`
-    }
+    
 }
+
+// obj2.__proto__ = obj1
 console.log(obj2.getFullName());
 
