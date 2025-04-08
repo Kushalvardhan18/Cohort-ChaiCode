@@ -35,6 +35,8 @@ let movieRatings = [
 let avgMovieRating = movieRatings.map((movie) => {
     let total = movie.ratings.reduce((acc, avg) => acc + avg, 0)
     let average = total / movie.ratings.length
+    // movie.ratings = average.toFixed(1)
+    // return movie
     return { title: movie.title, averageRatings: average.toFixed(1) }
 
 })
