@@ -21,16 +21,21 @@ let tasks = [
 ]
 
 let pendingSortedTasks = tasks
-.filter((task) =>!task.completed)
-.sort((a, b) =>  a.priorty - b.priorty )
+    .filter((task) => !task.completed)
+    .sort((a, b) => a.priorty - b.priorty)
 
 console.log(pendingSortedTasks);
 
-let movieRatings =[
-    {title:"Movie A",ratings:[4,5,3]},
-    {title:"Movie B",ratings:[5,5,4]},
-    {title:"Movie C",ratings:[3,4,2]}
+let movieRatings = [
+    { title: "Movie A", ratings: [4, 5, 3] },
+    { title: "Movie B", ratings: [5, 5, 4] },
+    { title: "Movie C", ratings: [3, 4, 2] }
 ]
 
-let avgMovieRating = movieRatings.map()
+let avgMovieRating = movieRatings.map((movie) => {
+    let total = movie.ratings.reduce((acc, avg) => acc + avg, 0)
+    let average = total / movie.ratings.length
+    return { title: movie.title, averageRatings: average.toFixed(1) }
+
+})
 console.log(avgMovieRating);
