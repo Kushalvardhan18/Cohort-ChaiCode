@@ -2,7 +2,6 @@ const obj = {
     personName: "Mukul",
     greet: function () {
         console.log(`Hello , ${this.personName}`);
-
     }
 }
 setTimeout(obj.greet.bind(obj), 0)
@@ -20,8 +19,6 @@ Promise.resolve().then(() => {
     )
 })
 console.log("bye bye");
-
-
 //  const age = 25
 // console.log('Age is', age);
 
@@ -32,8 +29,11 @@ function test() {
 
 // age = 3000
 
-
 // Hoisting - load variables in memory prior to  the execution of code.
 console.log('Age is', age); 
 var age = 25
 console.log('Age is', age); 
+
+
+// let and const both hoist but can't be accessed before .
+// Temporal dead Zone
