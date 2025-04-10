@@ -51,4 +51,5 @@ proxyArr[-2] = 25
 console.log(proxyArr[-2]);
 
 
+console.log(arr);
 
