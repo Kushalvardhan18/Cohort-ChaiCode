@@ -17,3 +17,5 @@ fetch('https://api.freeapi.app/api/v1/public/randomproducts')
         console.log("Unity in diversity");
 
     })
+
+    
