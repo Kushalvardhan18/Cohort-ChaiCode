@@ -5,10 +5,8 @@ console.log("Starting Program");
 
 
 // ------------ Modern Code ------------
-fsv2.readFile('./hello.txt', 'utf-8')
-    .then((content) => { fsv2.writeFile('backup.txt', content) })
-    .then(() => fsv2.unlink('./hello.txt'))
-    .catch((e) => console.log('Error', e))
+fsv2.readFile('./hello.txt', 'utf-8') 
+
 
 // ------------ Legacy Code --------------
 fs.readFile('./hello.txt', 'utf-8', function (err, content) {
