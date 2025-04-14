@@ -44,7 +44,7 @@ function negativeIndex(arr) {
     })
 }
 
-const proxyArr = negativeIndex(arr)
+const proxyArr = negativeIndex([...arr])
 console.log(proxyArr[-3]);
 
 proxyArr[-2] = 25
@@ -52,4 +52,5 @@ console.log(proxyArr[-2]);
 
 
 console.log(arr);
+console.log(proxyArr)
 
