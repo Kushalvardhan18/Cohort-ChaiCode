@@ -27,10 +27,15 @@ arr.myForEach((value, index) => {
 
 })
 
+
 // Promise
+if(!Promise){}
+
+
 
 if(!Array.prototype.reduce){
     Array.prototype.reduce = function(){
 
     }
 }
+
