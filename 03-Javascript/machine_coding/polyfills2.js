@@ -29,13 +29,25 @@ arr.myForEach((value, index) => {
 
 
 // Promise
-if(!Promise){}
+if (!Promise) { }
 
 
-
-if(!Array.prototype.reduce){
-    Array.prototype.reduce = function(){
+// reduce
+if (!Array.prototype.myReduce) {
+    Array.prototype.myReduce = function (cb, initialValue) {
+        // let acc = initialValue ?? this[0]  // nullish collesion
+        let acc = initialValue || this[0]  // nullish collesion
+        const startIndex = initialValue ? 0 : 1
+        for (let i = startIndex; i < this.length; i++) {
+            acc = cb(acc, this[i])
+        }
+        return acc
 
     }
 }
+
+const myResult = arr.myReduce((acc, currentValue) => acc + currentValue, 12)
+
+console.log({ myResult });
+
 
