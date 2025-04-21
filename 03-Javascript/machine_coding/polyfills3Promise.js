@@ -4,12 +4,19 @@ class MyPromise {
             this._successCallbacks = [],
             this._errorCallbacks = []
         this._finallyCallbacks = []
+
+
+        this.value = undefined
         executorFn(
             this.resolverFunction.bind(this),
             this.rejectorFunction.bind(this)
         )
     }
     then(cb) {
+        if(this._state == 'fulfilled'){
+            cb(this.value)
+            return this
+        }
         this._successCallbacks.push(cb)
         return this
     }
@@ -20,10 +27,15 @@ class MyPromise {
 
     }
     finally(cb) {
+        if(this._state !== 'pending'){
+            cb()
+            return this
+        }
         this._finallyCallbacks.push(cb)
         return this
     }
     resolverFunction(value) {
+        this.value = value
         this._state = "fulfilled"
         this._successCallbacks.forEach((cb) => cb(value))
         this._finallyCallbacks.forEach((cb) => cb())
