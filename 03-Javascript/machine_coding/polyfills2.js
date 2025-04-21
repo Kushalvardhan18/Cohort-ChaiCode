@@ -27,11 +27,6 @@ arr.myForEach((value, index) => {
 
 })
 
-
-// Promise
-if (!Promise) { }
-
-
 // reduce
 if (!Array.prototype.myReduce) {
     Array.prototype.myReduce = function (cb, initialValue) {
